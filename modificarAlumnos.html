@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modificar Alumno</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilo personalizado para el formulario */
+    .custom-form {
+      background-color: #e9ecef; /* Color de fondo suave */
+      border: 2px dashed #6c757d; /* Borde discontinuo gris */
+      border-radius: 15px; /* Bordes redondeados */
+      padding: 20px;
+    }
+  </style>
+  <script>
+    // Función para mostrar el formulario de modificación después de buscar por DNI
+    function mostrarFormularioModificacion() {
+      document.getElementById('form-modificacion').style.display = 'block';
+    }
+
+    // Función para mostrar el campo de entrada correcto según el campo seleccionado
+    function actualizarCampo() {
+      var campoSeleccionado = document.getElementById('campoModificar').value;
+      var inputCampo = document.getElementById('inputCampo');
+      var inputFecha = document.getElementById('inputFecha');
+
+      // Mostrar campo de texto o calendario según el campo seleccionado
+      if (campoSeleccionado === 'fechaNacimiento') {
+        inputCampo.style.display = 'none';  // Ocultar campo de texto
+        inputFecha.style.display = 'block'; // Mostrar calendario
+      } else {
+        inputCampo.style.display = 'block'; // Mostrar campo de texto
+        inputFecha.style.display = 'none';  // Ocultar calendario
+      }
+    }
+  </script>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Modificar Datos de Alumno</h4>
+        </div>
+        <div class="card-body">
+          <!-- Formulario para buscar por DNI -->
+          <form class="custom-form" onsubmit="event.preventDefault(); mostrarFormularioModificacion();">
+            <!-- DNI -->
+            <div class="mb-3">
+              <label for="dniBuscar" class="form-label">Buscar por DNI</label>
+              <input type="text" class="form-control" id="dniBuscar" placeholder="Introduce el DNI" required>
+            </div>
+            <!-- Botón de Buscar -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Buscar Alumno</button>
+            </div>
+          </form>
+
+          <!-- Formulario de modificación (oculto inicialmente) -->
+          <form id="form-modificacion" class="custom-form mt-4" style="display: none;">
+            <!-- Selector para elegir campo a modificar -->
+            <div class="mb-3">
+              <label for="campoModificar" class="form-label">Seleccionar Campo a Modificar</label>
+              <select class="form-select" id="campoModificar" onchange="actualizarCampo()" required>
+                <option value="" disabled selected>Seleccione un campo</option>
+                <option value="nombre">Nombre</option>
+                <option value="apellido1">Primer Apellido</option>
+                <option value="apellido2">Segundo Apellido</option>
+                <option value="direccion">Dirección</option>
+                <option value="telefono">Teléfono</option>
+                <option value="fechaNacimiento">Fecha de Nacimiento</option>
+              </select>
+            </div>
+
+            <!-- Campo de entrada para la modificación -->
+            <div class="mb-3" id="inputCampo">
+              <label for="valorModificar" class="form-label">Nuevo Valor</label>
+              <input type="text" class="form-control" id="valorModificar" placeholder="Introduce el nuevo valor" required>
+            </div>
+
+            <!-- Campo para seleccionar nueva fecha de nacimiento (oculto por defecto) -->
+            <div class="mb-3" id="inputFecha" style="display: none;">
+              <label for="fechaNacimientoModificar" class="form-label">Nueva Fecha de Nacimiento</label>
+              <input type="date" class="form-control" id="fechaNacimientoModificar">
+            </div>
+
+            <!-- Botón de Guardar Cambios -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

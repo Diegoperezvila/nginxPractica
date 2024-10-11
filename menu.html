@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Alumnos</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Animaciones para las cajas */
+    .menu-box {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .menu-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    }
+
+    /* Ajustes de tamaño y estilo */
+    .menu-box {
+      padding: 30px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      min-height: 150px; /* Ajuste de altura mínima para que todas las cajas tengan el mismo tamaño */
+    }
+
+    /* Colores más suaves para las cajas */
+    .menu-add { background-color: #6c757d; }  /* Gris suave para añadir */
+    .menu-list { background-color: #17a2b8; } /* Azul claro para listar */
+    .menu-edit { background-color: #ffc107; } /* Amarillo suave para modificar */
+    .menu-delete { background-color: #dc3545; } /* Rojo suave para eliminar */
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row g-4">
+    <!-- Caja Añadir Alumno -->
+    <div class="col-md-6">
+      <div class="menu-box menu-add">
+        <h3>Añadir Alumno</h3>
+        <i class="bi bi-plus-circle" style="font-size: 2rem;"></i> <!-- Icono opcional -->
+      </div>
+    </div>
+
+    <!-- Caja Listar Alumnos -->
+    <div class="col-md-6">
+      <div class="menu-box menu-list">
+        <h3>Listar Alumnos</h3>
+        <i class="bi bi-list" style="font-size: 2rem;"></i> <!-- Icono opcional -->
+      </div>
+    </div>
+
+    <!-- Caja Modificar Alumno -->
+    <div class="col-md-6">
+      <div class="menu-box menu-edit">
+        <h3>Modificar Alumno</h3>
+        <i class="bi bi-pencil-square" style="font-size: 2rem;"></i> <!-- Icono opcional -->
+      </div>
+    </div>
+
+    <!-- Caja Eliminar Alumno -->
+    <div class="col-md-6">
+      <div class="menu-box menu-delete">
+        <h3>Eliminar Alumno</h3>
+        <i class="bi bi-trash" style="font-size: 2rem;"></i> <!-- Icono opcional -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and Icons -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+
+</body>
+</html>
